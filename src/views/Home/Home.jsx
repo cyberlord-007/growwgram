@@ -1,33 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import Feed from '../../components/Feed/Feed';
 import { HomeWrapper } from './HomeStyles';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getFeeds } from '../../actions/getFeedAction';
+import { getFeeds, setLoading, setFeeds } from '../../actions/getFeedAction';
 import Fallback from '../../components/Feed/Fallback';
 
 const Home = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.feeds);
-  const { feeds } = state;
-  const [dataExists, setDataExists] = useState(false);
+  const { feeds, isLoading } = state;
 
   useEffect(() => {
     setTimeout(() => {
-      setDataExists(true);
-    }, 5000);
-    dispatch(getFeeds());
-  });
+      dispatch(setLoading(true));
+    }, 2000);
+    //dispatch(getFeeds());
+  },[dispatch]);
 
   return (
     <>
       <HomeWrapper>
-        {JSON.parse(localStorage.getItem('newsFeed'))?.map((feed) => {
+        {(JSON.parse(localStorage.getItem('newsFeed')))?.map((feed, idx) => {
           return (
             <Feed
+              key={feed.id}
               imgURL={feed.urls.regular}
               avatarURL={feed.user.profile_image.small}
               userName={feed.user.username}
+              userID={feed.user.id}
             />
           );
         })}

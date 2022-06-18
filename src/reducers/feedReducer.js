@@ -1,7 +1,7 @@
-import {GET_FEED} from '../actions/actiontypes'
+import {GET_FEED,SET_LOADING} from '../actions/actiontypes'
 
 const initState = {
-    isLoading: true,
+    isLoading: false,
     feeds: []
 }
 
@@ -9,7 +9,9 @@ const initState = {
 const feedReducer = (state = initState,action) => {
     switch (action.type) {
         case GET_FEED:
-            return {...state,feeds: [...state.feeds,action.payload]}
+            return {...state,feeds: [...state.feeds,...action.payload]}
+        case SET_LOADING:
+            return {...state,isLoading: action.payload}
         default:
             return state
     }

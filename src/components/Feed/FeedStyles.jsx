@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {Link} from 'react-router-dom'
 
 export const CardWrapper = styled.div`
   height: 500px;
@@ -53,9 +54,12 @@ export const UserAvatar = styled.div`
   background-image: url(${(props) => props.avatarURL});
 `;
 
-export const Username = styled.strong`
+export const Username = styled(Link)`
   font-size: 18px;
   padding: 0;
+  text-decoration: none;
+  color: #000;
+  font-weight: 800;
   margin: 0;
 `;
 
