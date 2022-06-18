@@ -13,7 +13,7 @@ export const ProfileCardWrap = styled.div`
   width: auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 50px;
   align-items: center;
 `;
 
