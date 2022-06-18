@@ -1,2 +1,3 @@
 export const GET_FEED = 'getFeed';
 export const SET_LOADING = 'setLoading';
+export const GET_USER_PROFILE = 'getUserProfile';

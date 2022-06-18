@@ -13,7 +13,7 @@ import {
 import { AiOutlineHeart } from 'react-icons/ai';
 import { MdOutlineModeComment } from 'react-icons/md';
 
-const Feed = ({ imgURL, userName, avatarURL, Ref,userID }) => {
+const Feed = ({ imgURL, userName, avatarURL, Ref }) => {
   return (
     <>
       <CardWrapper ref={Ref}>
@@ -22,7 +22,9 @@ const Feed = ({ imgURL, userName, avatarURL, Ref,userID }) => {
           <BottomFirstHalf>
             <UserInfo>
               <UserAvatar avatarURL={avatarURL} />
-              <Username to={{pathname: `/users/${userID}`}}>{userName}</Username>
+              <Username to={{ pathname: `/users/${userName}` }}>
+                {userName}
+              </Username>
             </UserInfo>
             <FeedDescription>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis

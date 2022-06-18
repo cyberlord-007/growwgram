@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux'
  import feedReducer from './feedReducer'
+import profileReducer from './profileReducer'
 
 const rootReducer =  combineReducers({
-    feeds: feedReducer
+    feedReducer,
+    profileReducer
 })
 
 export default rootReducer
