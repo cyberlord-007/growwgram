@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BottomFirstHalf,
   BottomSecondHalf,
@@ -10,10 +10,12 @@ import {
   UserInfo,
   Username,
 } from './FeedStyles';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { MdOutlineModeComment } from 'react-icons/md';
 
 const Feed = ({ imgURL, userName, avatarURL, Ref, listView }) => {
+  const [like, setLike] = useState(false);
+
   return (
     <>
       <CardWrapper listView={listView} ref={Ref}>
@@ -33,7 +35,11 @@ const Feed = ({ imgURL, userName, avatarURL, Ref, listView }) => {
             </FeedDescription>
           </BottomFirstHalf>
           <BottomSecondHalf listView={listView}>
-            <AiOutlineHeart color='red' />
+            {like ? (
+              <AiFillHeart color='red' onClick={() => setLike(!like)} />
+            ) : (
+              <AiOutlineHeart color='red' onClick={() => setLike(!like)} />
+            )}
             <MdOutlineModeComment />
           </BottomSecondHalf>
         </CardBottom>
