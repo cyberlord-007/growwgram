@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {GET_FEED,SET_LOADING} from './actiontypes'
+import {GET_FEED,SET_LOADING,SET_ERROR} from './actiontypes'
 
 export const getFeeds  = () => {
     return async (dispatch) => {
@@ -18,7 +18,11 @@ export const getFeeds  = () => {
             localStorage.setItem('newsFeed',JSON.stringify(res.data))
             console.log(res)
         } catch (err) {
-            console.log(err)
+            console.log('error',err)
+            dispatch({
+                type: SET_ERROR,
+                payload: 'Something went wrong 😞'
+            })
         }
     }
 }
