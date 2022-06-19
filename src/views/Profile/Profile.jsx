@@ -81,7 +81,11 @@ const Profile = () => {
               </ProfileCard>
               <StatsRow>
                 {userData?.instagram_username && (
-                  <SocialBadge bgColor='#E64854' href=''>
+                  <SocialBadge
+                    bgColor='#E64854'
+                    href={`https://www.instagram.com/${userData.instagram_username}`}
+                    target='_blank'
+                  >
                     <SocialIcon>
                       <GrInstagram />
                     </SocialIcon>
@@ -89,7 +93,11 @@ const Profile = () => {
                   </SocialBadge>
                 )}
                 {userData?.twitter_username && (
-                  <SocialBadge bgColor='#2BA1F2' href=''>
+                  <SocialBadge
+                    bgColor='#2BA1F2'
+                    href={`https://www.twitter.com/${userData.twitter_username}`}
+                    target='_blank'
+                  >
                     <SocialIcon>
                       <BsTwitter />
                     </SocialIcon>
@@ -97,7 +105,11 @@ const Profile = () => {
                   </SocialBadge>
                 )}
                 {userData?.portfolio_url && (
-                  <SocialBadge bgColor='#81c784' href=''>
+                  <SocialBadge
+                    bgColor='#81c784'
+                    href={userData.portfolio_url}
+                    target='_blank'
+                  >
                     <SocialIcon>
                       <FaGlobeAmericas />
                     </SocialIcon>
