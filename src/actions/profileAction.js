@@ -1,4 +1,4 @@
-import {GET_USER_PROFILE,FETCHING_PROFILE} from './actiontypes'
+import {GET_USER_PROFILE,FETCHING_PROFILE,PROFILE_ERROR} from './actiontypes'
 import axios from 'axios'
 
 export const getUserProfile = (userName) => {
@@ -18,6 +18,10 @@ export const getUserProfile = (userName) => {
             })
         } catch (err) {
             console.log(err)
+            dispatch({
+                type: PROFILE_ERROR,
+                payload: 'Problem fetching profile 😞'
+            })
         }
     }
 }

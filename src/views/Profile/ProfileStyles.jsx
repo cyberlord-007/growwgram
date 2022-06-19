@@ -10,6 +10,8 @@ export const Loading = styled.div`
   gap: 10;
   color: grey;
   font-size: 100px;
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
 `;
 
 export const ProfileWrapper = styled.div`
