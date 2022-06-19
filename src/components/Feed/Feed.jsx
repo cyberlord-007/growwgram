@@ -13,13 +13,13 @@ import {
 import { AiOutlineHeart } from 'react-icons/ai';
 import { MdOutlineModeComment } from 'react-icons/md';
 
-const Feed = ({ imgURL, userName, avatarURL, Ref }) => {
+const Feed = ({ imgURL, userName, avatarURL, Ref, listView }) => {
   return (
     <>
-      <CardWrapper ref={Ref}>
-        <CardImage imgURL={imgURL} />
-        <CardBottom>
-          <BottomFirstHalf>
+      <CardWrapper listView={listView} ref={Ref}>
+        <CardImage listView={listView} imgURL={imgURL} />
+        <CardBottom listView={listView}>
+          <BottomFirstHalf listView={listView}>
             <UserInfo>
               <UserAvatar avatarURL={avatarURL} />
               <Username to={{ pathname: `/users/${userName}` }}>
@@ -32,7 +32,7 @@ const Feed = ({ imgURL, userName, avatarURL, Ref }) => {
               sunt dolore.
             </FeedDescription>
           </BottomFirstHalf>
-          <BottomSecondHalf>
+          <BottomSecondHalf listView={listView}>
             <AiOutlineHeart color='red' />
             <MdOutlineModeComment />
           </BottomSecondHalf>

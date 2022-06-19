@@ -1,23 +1,36 @@
 import styled from 'styled-components';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export const CardWrapper = styled.div`
-  height: 500px;
+  height: ${({ listView }) => (listView ? '250px' : '500px')};
+  min-width: ${({ listView }) => (listView ? '50vw' : 'none')};
   box-shadow: -15px -15px 15px rgba(255, 255, 255, 0.2),
     15px 15px 15px rgba(0, 0, 0, 0.15);
   padding: 12px;
   border-radius: 15px;
   color: #000;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: ${({ listView }) => (listView ? 'row' : 'column')};
+  /* align-items: center; */
   gap: 20px;
   cursor: pointer;
+  background: url(${({ fallback, bg }) => (fallback ? bg : 'none')});
+  background-size: cover;
+
+  &:hover {
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: ${({ listView }) => (listView ? '100%' : 'auto')};
+  }
 `;
 
 export const CardImage = styled.div`
   width: 100%;
-  height: 65%;
+  height: ${({ listView }) => (listView ? '100%' : '65%')};
   border-radius: 15px;
   background-image: url(${(props) => props.imgURL});
   background-size: cover;
@@ -25,15 +38,15 @@ export const CardImage = styled.div`
 
 export const CardBottom = styled.div`
   width: 100%;
-  height: 35%;
+  height: ${({ listView }) => (listView ? '100%' : '35%')};
   color: #000;
   display: flex;
-  flex-direction: row;
+  flex-direction: ${({ listView }) => (listView ? 'column' : 'row')};
   gap: 10px;
 `;
 
 export const BottomFirstHalf = styled.div`
-  width: 80%;
+  width: ${({ listView }) => (listView ? '100%' : '80%')};
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -58,24 +71,29 @@ export const Username = styled(Link)`
   font-size: 18px;
   padding: 0;
   text-decoration: none;
-  color: #000;
+  color: ${({ theme }) => theme.text};
   font-weight: 800;
   margin: 0;
 `;
 
 export const FeedDescription = styled.p`
   font-size: 14px;
-  color: #4d4b4b;
+  color: ${({ theme }) => theme.subtext};
   text-align: left;
+
+  @media screen and (max-width: 480px) {
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 export const BottomSecondHalf = styled.div`
-  width: 20%;
+  width: ${({ listView }) => (listView ? '100%' : '20%')};
   height: 100%;
   font-size: 40px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  flex-direction: ${({ listView }) => (listView ? 'row' : 'column')};
+  align-items: ${({ listView }) => (listView ? 'flex-start' : 'flex-end')};
   text-align: right;
   gap: 30px;
 `;

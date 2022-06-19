@@ -1,16 +1,19 @@
 import React from 'react';
-import { NavLogo, NavWrapper, ThemeToggle } from './NavbarStyles';
-import {FaMoon} from 'react-icons/fa'
+import { NavLogo, NavWrapper, ThemeToggle, Nav } from './NavbarStyles';
+import { FaMoon } from 'react-icons/fa';
+import { MdWbSunny } from 'react-icons/md';
 
-const Navbar = () => {
+const Navbar = ({ toggleTheme, isDark }) => {
   return (
     <>
-      <NavWrapper>
-        <NavLogo>GrowwGram</NavLogo>
-        <ThemeToggle>
-            <FaMoon />
-        </ThemeToggle>
-      </NavWrapper>
+      <Nav>
+        <NavWrapper>
+          <NavLogo>GrowwGram</NavLogo>
+          <ThemeToggle onClick={toggleTheme}>
+            {isDark ? <MdWbSunny /> : <FaMoon />}
+          </ThemeToggle>
+        </NavWrapper>
+      </Nav>
     </>
   );
 };

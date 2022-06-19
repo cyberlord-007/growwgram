@@ -5,9 +5,7 @@ import Loading from '../../assets/loading.png';
 const Fallback = () => {
   return (
     <>
-      <CardWrapper>
-     
-      </CardWrapper>
+      <CardWrapper fallback={true} bg={Loading}></CardWrapper>
     </>
   );
 };
