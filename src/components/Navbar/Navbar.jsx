@@ -8,7 +8,7 @@ const Navbar = ({ toggleTheme, isDark }) => {
     <>
       <Nav>
         <NavWrapper>
-          <NavLogo>GrowwGram</NavLogo>
+          <NavLogo>PixaGram</NavLogo>
           <ThemeToggle onClick={toggleTheme}>
             {isDark ? <MdWbSunny /> : <FaMoon />}
           </ThemeToggle>

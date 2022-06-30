@@ -37,7 +37,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getFeeds());
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
